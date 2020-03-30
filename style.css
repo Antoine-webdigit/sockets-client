@@ -1,0 +1,9 @@
+#messages .author {
+  font-weight: bolder;
+}
+
+#messages {
+  max-height: 200px;
+  overflow: scroll;
+  width: 400px;
+}

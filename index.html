@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test socket</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <h2>{{ userCount }} participant(s)</h2>
+    <div id="messages">
+      <p v-for="message in messages" :key="message.date">
+        <span class="date">{{ retrieveTime(message.date) }}</span>
+        <span class="author">{{ message.author }}:</span>
+        <span class="message">{{ message.message }}</span>
+      </p>
+    </div>
+    <form id="new-message" @submit.prevent="sendMessage">
+      <input type="text" v-model="author" placeholder="Author" />
+      <input type="text" v-model="message" placeholder="Message" />
+      <button type="submit">Send message</button>
+    </form>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
